@@ -1,0 +1,252 @@
+/*como todas as  sections têm text-align-center; , iremos aplicá-lo no body e apagá-lo das outras sections, à excepçãp da que está dentro
+da @media porque é uma condição*/
+body {
+  font-family: "Montserrat";
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: "Montserrat";
+}
+/*substituído pela .section heading (minimizar codigo)*/
+/*h2 {
+font-family: "Montserrat";
+  font-size: 3rem;
+  line-height: 1.5;
+}*/
+
+/*substituído por .feature-title
+h3 {
+  /*font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 1.5rem;
+}*/
+
+p {
+  color: #8f8f8f;
+}
+
+.big-heading {
+  /*font-family: "Montserrat";*/
+  font-weight: bold;
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+
+.section-heading {
+  font-size: 3rem;
+  line-height: 1.5;
+}
+
+/*containers*/
+
+.container-fluid {
+  /* 1ºvalor: top  2ºvalor: left and right 3ºvalor: buttom*/
+  /*padding: 3% 15% 7%;
+  para minimizar codigo, vamos mudar o padding para: *//*e tudo o que tiver este padding fica dentro da class="container-fluid" no html*/
+  padding: 7% 15%;
+}
+
+/*sections*/
+
+.colored-section{
+  background-color: #ff4c68;
+  color: #fff;
+}
+
+.white-section {
+  background-color: #ffff;
+}
+
+/*navigation Bar*/
+.navbar {
+  /*padding-bottom: 4.5rem;*/
+  padding: 0 0 4.5rem;
+}
+
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.nav-item {
+  padding: 0 18px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+}
+
+/*Download Buttons*/
+.download-button {
+  margin: 5% 3% 5% 0;
+}
+
+
+/*title section*/
+
+#title {
+  /*passaram para a .colored-section para refatorar(minimizar) o codigo.
+  background-color: #ff4c68;
+  color: #fff;*/
+  text-align: left;
+}
+
+/*como o title ficou com mais padding do que o que deveria, vamos dar outro padding ao container-fluid mas, para que não entre em
+conflito com o nosso outro container-fluid, vamos dizer que: para a class="container-fluid" que está dentro do #title da title
+section, aplicar este padding(rule mais específica, vai prevalecer em relação à outra, neste caso):  */
+
+#title .container-fluid {
+  padding: 3%  15% 7%;
+}
+
+
+/*Title image*/
+.title-image {
+  width: 20%;
+  transform: rotate(25deg);
+  position: absolute;
+  /*z-index: -1;*/
+  right: 24%;
+}
+
+/*features section*/
+#features {
+  padding: 7% 15%;
+  /*passa para a .white-section para refaturar (minimizar) o código.
+  background-color: #ffff;*/
+  /*position: absolute;*/
+  position: relative;
+  z-index: 1;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+}
+
+.feature-box {
+  /*text-align: center;*/
+  padding: 5%;
+}
+
+.icon {
+  color: #ef8172;
+  margin-bottom: 1rem;
+}
+
+/*quando passamos com o mouse, faz mudar a cor do icon*/
+.icon:hover {
+  color: #ff4c68;
+}
+
+/*Testimonial seccion*/
+#testimonials {
+  /*padding movido para .carousel-item
+  padding: 7% 15%;*/
+  /*text-align: center;*/
+  background-color: #ef8172;
+  /* está repetido porque já consta na .white-section.
+  color: #fff;*/
+}
+
+.testimonial-text {
+  font-size:  3rem;
+  line-height: 1.5;
+}
+
+.testimonial-image {
+  width: 10%;
+  /*faz a img ficar redonda*/
+  border-radius: 100%;
+  margin: 20px;
+}
+/* substituído por .container-fluid; .
+.carousel-item {
+  padding: 7% 15%;
+}*/
+
+#press {
+  background-color: #ef8172;
+/*  text-align: center;*/
+  padding-bottom: 3%;
+}
+
+.press-logo {
+  width: 15%;
+  margin: 20px 20px 50px;
+}
+
+/*Pricing section*/
+#pricing {
+  padding: 100px;
+/*  text-align: center;*/
+}
+
+.price-text {
+font-size: 3rem;
+line-height: 1.5;
+}
+
+.pricing-column {
+  padding: 3% 2%;
+}
+
+/*Quando o valor do ecrã é menos de 128px, a imagem do telemovel fica estranha
+e o texto do título também. Vamos corrigir isto usando media query:  */
+@media (max-width: 1028px) {
+
+  /*para centrar todo o conteúdo dentro da title section*/
+
+  #title {
+    text-align: center;
+  }
+
+  .title-image {
+    /*para que a image não desapareça*/
+    position: static;
+    /*para que a image fique direita*/
+    transform: rotate(0);
+  }
+}
+
+/* Call to action section */
+#cta {
+  font-family: "Montserrat";
+/*Está na .colored-section
+  color: #fff;*/
+  font-size: 1.5rem;
+  /*text-align: center;*/
+  /*Está na .colored-section
+  background-color: #ff4c68;*/
+/*substituído pelo container-fluid para minimizar codigo
+  padding: 7% 15%;*/
+}
+/*substituído por .big-heading
+.call-action {
+  font-size: 4rem;
+}*/
+
+/* Footer section*/
+
+/*#footer {
+   background-color: #fff;*/
+  /*substituído pelo container-fluid para minimizar codigo
+  padding: 7% 15%;
+  /*text-align: center;*/
+  /*font-size: 1.5rem;*/
+}
+
+/*nãp é boa prática usar o fab e o fas. Atribuí nome à class. Vêr no html.O resto estava bem.
+.fab {
+  padding: 4% 1.5%;
+}
+
+.fas {
+  padding: 4% 1.5%;
+}*/
+.social-icons {
+  /*  padding: 4% 1.5%;*/
+  margin: 20px 10px;
+}
